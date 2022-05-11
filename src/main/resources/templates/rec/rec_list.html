@@ -35,8 +35,9 @@
 
            
             <div class="row">
-            <th:block th:each=" recvo : ${reclist}">
-                        <div class="col-md-3 col-sm-6 col-xs-12 box"> 
+            <th:block th:each=" recvo, state : ${reclist}">
+                        <div class="col-md-3 col-sm-6 col-xs-12 box">
+                      	  <span><strong>추천번호: [[${state.index + 1}]]</strong></span> 
                             <div class="ani_img">
                                 <img th:src="@{../display(filepath=${recvo.ANIMAL_PATH}, uuid=${recvo.ANIMAL_UUID} , filename=${recvo.ANIMAL_FILENAME})}" alt="이미지">
                             </div>
@@ -44,6 +45,7 @@
                             
                             <div class="boxDetail">
                                 <div class="boxLeft">
+                               		
                                 	<span style="display: none">[[${recvo.ANIMAL_NUM}]]</span>
                                     <span>이름:[[${recvo.ANIMAL_NAME}]]</span>
                                     <span>종류:[[${recvo.ANIMAL_TYPE}]]</span>
@@ -255,7 +257,7 @@
 			</form>
         </div>
 
-
+		</div>
     </section>
     
 
